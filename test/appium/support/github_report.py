@@ -121,9 +121,9 @@ class GithubHtmlReport(BaseTestReport):
             (code_error, no_code_error_str, issue_id) = self.separate_xfail_error(error)
             if no_code_error_str:
                 html += "<code>%s</code>" % code_error
-                html += no_code_error_str
+                html += no_code_error_str.replace("[[", "<b>").replace("]]", "</b>")
             else:
-                html += "<code>%s</code>" % error
+                html += "<code>%s</code>" % error.replace("[[", "<b>").replace("]]", "</b>")
             html += "<br/><br/>"
         if test.group_name:
             html += "<p><b>Class: %s</b></p>" % test.group_name
