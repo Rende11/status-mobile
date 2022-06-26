@@ -28,7 +28,8 @@
             [status-im.qr-scanner.core :as qr-scanner]
             [status-im.ui.components.chat-icon.screen :as chat-icon.screen]
             [status-im.ui.components.chat-icon.styles :as chat-icon.styles]
-            [quo2.foundations.colors :as quo2.colors])
+            [quo2.foundations.colors :as quo2.colors]
+            [quo2.components.button :as quo2.button])
   (:require-macros [status-im.utils.views :as views]))
 
 (defn home-tooltip-view []
@@ -247,15 +248,14 @@
 
 (views/defview notifications-button []
   (views/letsubs [notif-count [:activity.center/notifications-count]]
-    [react/view
-     [quo/button {:type     :icon
-                  :style {:width 32 :height 32 :margin-left 12 :background-color (quo2.colors/theme-colors quo2.colors/ui-background-03-light quo2.colors/ui-background-03-dark) :border-radius 10}
-                  :accessibility-label "notifications-button"
-                  :on-press #(do
-                               (re-frame/dispatch [:mark-all-activity-center-notifications-as-read])
-                               (re-frame/dispatch [:navigate-to :notifications-center]))
-                  :theme    :icon}
-      :main-icons/notification2]
+    [react/view {:style {:margin-left 12}}
+     [quo2.button/button {:style {:width 32 :height 32 :background-color (quo2.colors/theme-colors quo2.colors/ui-background-03-light quo2.colors/ui-background-03-dark) :border-radius 10}
+                          :size 32
+                          :accessibility-label :notifications-button
+                          :on-press #(do
+                                       (re-frame/dispatch [:mark-all-activity-center-notifications-as-read])
+                                       (re-frame/dispatch [:navigate-to :notifications-center]))}
+      [icons/icon :main-icons/notification2 {:color (quo2.colors/theme-colors quo2.colors/black quo2.colors/white)}]]
      (when (pos? notif-count)
        [react/view {:style (merge (styles/counter-public-container) {:top 5 :right 5})
                     :pointer-events :none}
@@ -280,26 +280,24 @@
                      :accessibility-label :notifications-unread-badge}]])]))
 
 (views/defview qr-button []
-  [react/view
-   [quo/button {:type     :icon
-                :style {:width 32 :height 32 :margin-left 12 :background-color (quo2.colors/theme-colors quo2.colors/ui-background-03-light quo2.colors/ui-background-03-dark) :border-radius 10}
-                :accessibility-label "qr-button"
-                :on-press #(do
-                             (re-frame/dispatch [::qr-scanner/scan-code
-                                                 {:handler ::qr-scanner/on-scan-success}]))
-                :theme    :icon}
-    :main-icons/qr2]])
+  [react/view {:style {:margin-left 12}}
+   [quo2.button/button {:style {:width 32 :height 32 :background-color (quo2.colors/theme-colors quo2.colors/ui-background-03-light quo2.colors/ui-background-03-dark) :border-radius 10}
+                        :accessibility-label "qr-button"
+                        :size 32
+                        :on-press #(do
+                                     (re-frame/dispatch [::qr-scanner/scan-code
+                                                         {:handler ::qr-scanner/on-scan-success}]))}
+    [icons/icon :main-icons/qr2 {:color (quo2.colors/theme-colors quo2.colors/black quo2.colors/white)}]]])
 
 (views/defview scan-button []
   [react/view
-   [quo/button {:type     :icon
-                :style {:width 32 :height 32 :background-color (quo2.colors/theme-colors quo2.colors/ui-background-03-light quo2.colors/ui-background-03-dark) :border-radius 10}
-                :accessibility-label "scan-button"
-                :on-press #(do
-                             (re-frame/dispatch [::qr-scanner/scan-code
-                                                 {:handler ::qr-scanner/on-scan-success}]))
-                :theme    :icon}
-    :main-icons/scan2]])
+   [quo2.button/button {:style {:width 32 :height 32 :background-color (quo2.colors/theme-colors quo2.colors/ui-background-03-light quo2.colors/ui-background-03-dark) :border-radius 10}
+                        :size 32
+                        :accessibility-label "scan-button"
+                        :on-press #(do
+                                     (re-frame/dispatch [::qr-scanner/scan-code
+                                                         {:handler ::qr-scanner/on-scan-success}]))}
+    [icons/icon :main-icons/scan2 {:color (quo2.colors/theme-colors quo2.colors/black quo2.colors/white)}]]])
 
 (views/defview profile-button []
   (views/letsubs [{:keys [public-key preferred-name emoji]} [:multiaccount]]
