@@ -5,7 +5,8 @@
             [status-im.utils.handlers :refer [<sub]]
             [status-im.utils.datetime :as datetime]
             [quo.design-system.colors :as colors]
-            [clojure.string :as string]))
+            [clojure.string :as string]
+            [quo2.foundations.colors :as quo2.colors]))
 
 ;; Specs:
 ;; :visibility-status-automatic
@@ -63,6 +64,15 @@
   [{:keys [status-type] :as visibility-status-update} my-icon?]
   (if my-icon?
     (if (= status-type constants/visibility-status-inactive)
+      colors/color-inactive quo2.colors/color-online)
+    (let [{:keys [real-status-type]}
+          (calculate-real-status-type-and-time-left visibility-status-update)]
+      (:color (get visibility-status-type-data real-status-type)))))
+
+(defn dot-color-old
+  [{:keys [status-type] :as visibility-status-update} my-icon?]
+  (if my-icon?
+    (if (= status-type constants/visibility-status-inactive)
       colors/color-inactive colors/color-online)
     (let [{:keys [real-status-type]}
           (calculate-real-status-type-and-time-left visibility-status-update)]
@@ -83,7 +93,7 @@
         size                     (/ container-size 2.4)
         margin                   -2
         dot-color                (dot-color visibility-status-update my-icon?)
-        accessibility-label      (if (= dot-color colors/color-online)
+        accessibility-label      (if (= dot-color quo2.colors/color-online)
                                    :online-profile-photo-dot
                                    :offline-profile-photo-dot)]
     (merge (styles/visibility-status-dot dot-color size)
@@ -97,7 +107,7 @@
         visibility-status-update (visibility-status-update public-key my-icon?)
         size                     (/ container-size 4)
         margin                   (if identicon? (/ size 6) (/ size 7))
-        dot-color                (dot-color visibility-status-update my-icon?)
+        dot-color                (dot-color-old visibility-status-update my-icon?)
         accessibility-label      (if (= dot-color colors/color-online)
                                    :online-profile-photo-dot
                                    :offline-profile-photo-dot)]

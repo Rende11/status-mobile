@@ -61,7 +61,7 @@
                                                     :pressed  colors/danger-40
                                                     :disabled colors/danger-50}}}})
 
-(defn style-container [type size disabled background-color border-color icon above width before after]
+(defn style-container [type size disabled background-color border-color icon above width before after rounded]
   (merge {:height             size
           :align-items        :center
           :justify-content    :center
@@ -88,7 +88,9 @@
            {:border-color border-color
             :border-width 1})
          (when disabled
-           {:opacity 0.3})))
+           {:opacity 0.3})
+         (when rounded
+           {:border-radius (/ width 2)})))
 
 (defn button
   "with label
@@ -105,9 +107,10 @@
   [_ _]
   (let [pressed (reagent/atom false)]
     (fn [{:keys [on-press disabled type size before after above width
-                 on-long-press accessibility-label icon style]
+                 on-long-press accessibility-label icon style rounded]
           :or   {type :primary
-                 size 40}}
+                 size 40
+                 rounded false}}
          children]
       (let [{:keys [icon-color background-color label border-color]}
             (get-in themes [(theme/get-theme) type])
@@ -137,7 +140,8 @@
                             above
                             width
                             before
-                            after)
+                            after
+                            rounded)
                            style)}
           (when above
             [rn/view

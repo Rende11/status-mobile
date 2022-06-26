@@ -2,7 +2,8 @@
   (:require [quo.design-system.colors :as colors]
             [quo.core :as quo]
             [status-im.ui.components.react :as react]
-            [status-im.ui.components.icons.icons :as icons]))
+            [status-im.ui.components.icons.icons :as icons]
+            [quo2.components.button :as quo2.button]))
 
 (def action-button-container
   {:align-items     :center
@@ -44,9 +45,12 @@
 
 (defn plus-button [{:keys [on-press loading accessibility-label]}]
   [react/view action-button-container
-   [quo/button {:type                :scale
-                :accessibility-label (or accessibility-label :plus-button)
-                :on-press            on-press}
+   [quo2.button/button {:type                :primary
+                        :size                32
+                        :width               32
+                        :rounded             true
+                        :accessibility-label (or accessibility-label :plus-button)
+                        :on-press            on-press}
     [react/view (action-button)
      (if loading
        [react/activity-indicator {:color     colors/white-persist

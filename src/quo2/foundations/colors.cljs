@@ -202,5 +202,13 @@
 (def ui-background-02-dark "rgba(4,11,20,1)")
 (def ui-background-03-dark "rgba(14, 22, 32, 1)")
 
+;; divider
+(def divider-light "rgba(237, 242, 244, 1)")
+(def divider-dark "rgba(14, 22, 32, 1)")
+
+;; Visibility status
+
+(def color-online "#26A69A")
+
 (defn theme-colors [light dark]
   (if (theme/dark?) dark light))
