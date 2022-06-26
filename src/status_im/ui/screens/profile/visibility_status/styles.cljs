@@ -1,5 +1,6 @@
 (ns status-im.ui.screens.profile.visibility-status.styles
-  (:require [quo.design-system.colors :as colors]))
+  (:require [quo.design-system.colors :as colors]
+            [quo2.foundations.colors :as quo2.colors]))
 
 (defn visibility-status-button-container []
   {:background-color       (:interactive-02 @colors/theme)
@@ -19,7 +20,7 @@
    :height           size
    :border-radius    (/ size 2)
    :border-width     3.5
-   :border-color     (:ui-background  @colors/theme)})
+   :border-color     (quo2.colors/theme-colors quo2.colors/ui-background-light quo2.colors/ui-background-dark)})
 
 (defn visibility-status-dot-old [dot-color size]
   {:background-color dot-color

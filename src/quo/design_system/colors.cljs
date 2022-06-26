@@ -33,7 +33,7 @@
    :ui-01          "rgba(238,242,245,1)"   ; Secondary background
    :ui-02          "rgba(0,0,0,0.1)"       ; Deviders
    :ui-03          "rgba(0,0,0,0.86)"      ; Dark background
-   :text-01        "rgba(4,11,20,1)"         ; Main text color
+   :text-01        "rgba(0,0,0,1)"         ; Main text color
    :text-02        "rgba(147,155,161,1)"   ; Secondary text
    :text-03        "rgba(255,255,255,0.7)" ; Secondary on accent
    :text-04        "rgba(67,96,223,1)"     ; Links text color
@@ -62,7 +62,7 @@
    :interactive-02 "rgba(35,37,47,1)"
    :interactive-03 "rgba(255,255,255,0.1)"
    :interactive-04 "rgba(131,140,145,1)"
-   :ui-background  "rgba(24,28,36,1)"
+   :ui-background  "rgba(20,20,20,1)"
    :ui-01          "rgba(37,37,40,1)"
    :ui-02          "rgba(0,0,0,0.1)"
    :ui-03          "rgba(0,0,0,0.86)"
