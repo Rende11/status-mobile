@@ -224,12 +224,10 @@
 
            ;Chat
            {:name          :chat
-            :options   {:topBar {:visible false}}
-            ;; :options       {:popGesture false
-            ;;                 :topBar     {:title        {:component {:name :chat-toolbar :id :chat-toolbar}
-            ;;                                             :alignment :fill}
-            ;;                              :rightButtons (right-button-options :chat-search :search)
-            ;;                              :leftButtons (right-button-options :back :main-icons/arrow-left)}}
+            :options       {:popGesture false
+                            :hardwareBackButton {:dismissModalOnPress false
+                                                 :popStackOnPress     false}
+                            :topBar             {:visible false}}
             :component     chat/chat-old}
 
            ;Pinned messages
