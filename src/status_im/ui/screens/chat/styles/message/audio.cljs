@@ -1,6 +1,6 @@
 (ns status-im.ui.screens.chat.styles.message.audio
   (:require [quo.design-system.colors :as colors]
-            [status-im.ui.screens.chat.styles.message.message-old :as message.style]
+            [status-im.ui.screens.chat.styles.message.message :as message.style]
             [status-im.utils.platform :as platform]))
 
 (defn container [window-width]
@@ -17,22 +17,16 @@
    :align-items :stretch
    :flex-grow 1})
 
-(defn slider [outgoing]
+(defn slider []
   {:style (merge {:margin-left 12
                   :height      34}
                  (when platform/ios? {:margin-bottom 4}))
-   :thumb-tint-color (if outgoing
-                       colors/white
-                       colors/blue)
-   :minimum-track-tint-color (if outgoing
-                               colors/white
-                               colors/blue)
-   :maximum-track-tint-color (if outgoing
-                               colors/white-transparent
-                               colors/gray-transparent-40)})
+   :thumb-tint-color colors/white
+   :minimum-track-tint-color colors/white
+   :maximum-track-tint-color colors/white-transparent})
 
-(defn play-pause-container [outgoing? loading?]
-  {:background-color (if outgoing? colors/white-persist colors/blue)
+(defn play-pause-container [loading?]
+  {:background-color colors/white-persist
    :width            28
    :height           28
    :padding          (if loading? 4 2)

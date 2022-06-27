@@ -172,12 +172,7 @@
 (defn message-view
   [{:keys [content-type mentioned pinned]}]
   (merge
-   {:border-top-left-radius     16
-    :border-top-right-radius    16
-    :border-bottom-right-radius 16
-    :border-bottom-left-radius  16
-    :padding-top                0
-    :margin-top                 0}
+   {:border-radius 10}
 
    (cond
      pinned                                             {:background-color colors/pin-background}
@@ -185,6 +180,9 @@
      mentioned                                           {:background-color colors/mentioned-background
                                                           :border-color colors/mentioned-border
                                                           :border-width 1}
+     (= content-type constants/content-type-audio)       {:background-color colors/blue
+                                                          :padding-horizontal 12
+                                                          :padding-top 6}
      :else                                               {:background-color colors/white})
 
    (when (= content-type constants/content-type-emoji)

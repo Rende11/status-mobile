@@ -24,6 +24,26 @@
    {:color    colors/red
     :title    (i18n/label :t/error)}
    constants/visibility-status-automatic
+   {:color    quo2.colors/color-online
+    :title    (i18n/label :t/status-automatic)
+    :subtitle (i18n/label :t/status-automatic-subtitle)}
+   constants/visibility-status-dnd
+   {:color    colors/color-dnd
+    :title    (i18n/label :t/status-dnd)
+    :subtitle (i18n/label :t/status-dnd-subtitle)}
+   constants/visibility-status-always-online
+   {:color    quo2.colors/color-online
+    :title    (i18n/label :t/status-always-online)}
+   constants/visibility-status-inactive
+   {:color    colors/color-inactive
+    :title    (i18n/label :t/status-inactive)
+    :subtitle (i18n/label :t/status-inactive-subtitle)}})
+
+(def visibility-status-type-data-old
+  {constants/visibility-status-unknown
+   {:color    colors/red
+    :title    (i18n/label :t/error)}
+   constants/visibility-status-automatic
    {:color    colors/color-online
     :title    (i18n/label :t/status-automatic)
     :subtitle (i18n/label :t/status-automatic-subtitle)}
@@ -76,7 +96,7 @@
       colors/color-inactive colors/color-online)
     (let [{:keys [real-status-type]}
           (calculate-real-status-type-and-time-left visibility-status-update)]
-      (:color (get visibility-status-type-data real-status-type)))))
+      (:color (get visibility-status-type-data-old real-status-type)))))
 
 (defn my-icon? [public-key]
   (or (string/blank? public-key)
