@@ -123,8 +123,7 @@
             ;[quo2.foundations.colors :as quo2.colors]))
 
 (def components
-  [{:name      :chat-toolbar
-    :component chat/topbar-content}])
+  [])
 
 (defn right-button-options [id icon]
   {:id   id
