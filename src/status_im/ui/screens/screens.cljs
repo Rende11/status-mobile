@@ -120,6 +120,7 @@
             [quo2.screens.main :as quo2.preview]
             [status-im.utils.config :as config]
             [status-im.navigation2.screens :as navigation2.screens]))
+            ;[quo2.foundations.colors :as quo2.colors]))
 
 (def components
   [{:name      :chat-toolbar
@@ -216,10 +217,6 @@
 
            ;Home
            {:name      :home
-            :options       {:topBar     {:rightButtons (concat (right-button-options :scan :search)
-                                                               (right-button-options :profile :more)
-                                                               (right-button-options :activity-center :more))
-                                         :leftButtons (right-button-options :back :main-icons/arrow-left)}}
             :component home/home-old}
 
            ;Chat
