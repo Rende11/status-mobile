@@ -71,6 +71,7 @@
     [status-im.contexts.wallet.add-account.add-address-to-watch.confirm-address.view :as
      wallet-confirm-address-to-watch]
     [status-im.contexts.wallet.add-account.add-address-to-watch.view :as wallet-add-address-to-watch]
+    [status-im.contexts.wallet.add-account.create-account.import-private-key.view :as wallet-import-private-key]
     [status-im.contexts.wallet.bridge.bridge-to.view :as wallet-bridge-to]
     [status-im.contexts.wallet.bridge.input-amount.view :as wallet-bridge-input-amount]
     [status-im.contexts.wallet.bridge.select-asset.view :as wallet-bridge-select-asset]
@@ -377,6 +378,10 @@
 
     {:name      :screen/wallet.edit-derivation-path
      :component wallet-edit-derivation-path/view}
+
+    {:name     :screen/wallet.import-private-key
+     :options   {:insets {:top? true}}
+     :component wallet-import-private-key/view}
 
     {:name      :screen/wallet.collectible
      :component wallet-collectible/view}

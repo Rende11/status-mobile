@@ -10,9 +10,7 @@
 
 (defonce ^:private feature-flags-config
   (reagent/atom
-   {::wallet.bridge-token              (enabled-in-env? :FLAG_BRIDGE_TOKEN_ENABLED)
-    ::wallet.edit-derivation-path      (enabled-in-env? :FLAG_EDIT_DERIVATION_PATH)
-    ::wallet.remove-account            (enabled-in-env? :FLAG_REMOVE_ACCOUNT_ENABLED)
+   {::wallet.import-private-key        true ;(enabled-in-env? :FLAG_IMPORT_PRIVATE_KEY_ENABLED)
     ::wallet.network-filter            (enabled-in-env? :FLAG_NETWORK_FILTER_ENABLED)
     ::community.edit-account-selection (enabled-in-env? :FLAG_EDIT_ACCOUNT_SELECTION_ENABLED)}))
 

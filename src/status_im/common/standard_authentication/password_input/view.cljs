@@ -70,7 +70,6 @@
       [quo/input
        {:container-style {:flex 1}
         :type            :password
-        :theme           theme
         :default-value   @default-value
         :blur?           blur?
         :disabled?       processing
