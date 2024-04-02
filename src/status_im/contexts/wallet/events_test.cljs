@@ -2,8 +2,8 @@
   (:require
     [cljs.test :refer-macros [deftest is testing]]
     matcher-combinators.test
-    [status-im.contexts.wallet.events :as events]
-    [status-im.contexts.wallet.events.collectibles :as collectibles]))
+    [status-im.contexts.wallet.collectible.events :as collectibles]
+    [status-im.contexts.wallet.events :as events]))
 
 (def address "0x2f88d65f3cb52605a54a833ae118fb1363acccd2")
 

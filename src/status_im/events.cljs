@@ -28,8 +28,9 @@
     status-im.contexts.profile.settings.events
     status-im.contexts.shell.share.events
     status-im.contexts.syncing.events
+    status-im.contexts.wallet.add-account.add-address-to-watch.events
+    status-im.contexts.wallet.add-account.create-account.events
     status-im.contexts.wallet.common.wizard
-    status-im.contexts.wallet.create-account.events
     status-im.contexts.wallet.effects
     status-im.contexts.wallet.events
     status-im.contexts.wallet.send.events
