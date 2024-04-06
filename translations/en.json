@@ -2562,5 +2562,10 @@
         "one": "1 address",
         "other": "{{count}} addresses"
     },
-    "max": "Max: {{number}}"
+    "max": "Max: {{number}}",
+    "enter-private-key": "Enter the private key of an address",
+    "enter-private-key-placeholder": "Enter your private key",
+    "import-private-key-info": "New addresses cannot be derived from an account imported from a private key. Import using a seed phrase if you wish to derive addresses."
+    
+    
 }
