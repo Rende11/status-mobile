@@ -5,7 +5,7 @@
     [react-native.core :as rn]
     [status-im.constants :as constants]
     [status-im.contexts.wallet.add-account.create-account.select-keypair.style :as style]
-    [status-im.feature-flags :as ff]
+    ;; [status-im.feature-flags :as ff]
     [utils.address :as utils]
     [utils.i18n :as i18n]
     [utils.re-frame :as rf]))
@@ -27,8 +27,10 @@
      {:icon                :i/key
       :accessibility-label :import-private-key
       :label               (i18n/label :t/import-private-key)
-      :on-press (when true ;(ff/enabled? ::wallet.import-private-key)            
-       #(rf/dispatch [:navigate-to :screen/wallet.import-private-key]))}]]])
+      ;; TODO Fix befor merge
+      :on-press            (when true
+                             ;; (ff/enabled? ::wallet.import-private-key)
+                             #(rf/dispatch [:navigate-to :screen/wallet.import-private-key]))}]]])
 
 (defn- parse-accounts
   [given-accounts]

@@ -58,8 +58,13 @@
     [status-im.contexts.wallet.account.edit-account.view :as wallet-edit-account]
     [status-im.contexts.wallet.account.share-address.view :as wallet-share-address]
     [status-im.contexts.wallet.account.view :as wallet-accounts]
+    [status-im.contexts.wallet.add-account.add-address-to-watch.confirm-address.view :as
+     wallet-confirm-address-to-watch]
+    [status-im.contexts.wallet.add-account.add-address-to-watch.view :as wallet-add-address-to-watch]
     [status-im.contexts.wallet.add-account.create-account.edit-derivation-path.view :as
      wallet-edit-derivation-path]
+    [status-im.contexts.wallet.add-account.create-account.import-private-key.view :as
+     wallet-import-private-key]
     [status-im.contexts.wallet.add-account.create-account.new-keypair.backup-recovery-phrase.view :as
      wallet-backup-recovery-phrase]
     [status-im.contexts.wallet.add-account.create-account.new-keypair.check-your-backup.view :as
@@ -68,10 +73,6 @@
      wallet-keypair-name]
     [status-im.contexts.wallet.add-account.create-account.select-keypair.view :as wallet-select-keypair]
     [status-im.contexts.wallet.add-account.create-account.view :as wallet-create-account]
-    [status-im.contexts.wallet.add-account.add-address-to-watch.confirm-address.view :as
-     wallet-confirm-address-to-watch]
-    [status-im.contexts.wallet.add-account.add-address-to-watch.view :as wallet-add-address-to-watch]
-    [status-im.contexts.wallet.add-account.create-account.import-private-key.view :as wallet-import-private-key]
     [status-im.contexts.wallet.bridge.bridge-to.view :as wallet-bridge-to]
     [status-im.contexts.wallet.bridge.input-amount.view :as wallet-bridge-input-amount]
     [status-im.contexts.wallet.bridge.select-asset.view :as wallet-bridge-select-asset]
@@ -379,7 +380,7 @@
     {:name      :screen/wallet.edit-derivation-path
      :component wallet-edit-derivation-path/view}
 
-    {:name     :screen/wallet.import-private-key
+    {:name      :screen/wallet.import-private-key
      :options   {:insets {:top? true}}
      :component wallet-import-private-key/view}
 

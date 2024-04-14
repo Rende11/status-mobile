@@ -10,7 +10,7 @@
 
 (defonce ^:private feature-flags-config
   (reagent/atom
-   {::wallet.import-private-key        true ;(enabled-in-env? :FLAG_IMPORT_PRIVATE_KEY_ENABLED)
+   {::wallet.import-private-key        (enabled-in-env? :FLAG_IMPORT_PRIVATE_KEY_ENABLED)
     ::wallet.network-filter            (enabled-in-env? :FLAG_NETWORK_FILTER_ENABLED)
     ::community.edit-account-selection (enabled-in-env? :FLAG_EDIT_ACCOUNT_SELECTION_ENABLED)}))
 
